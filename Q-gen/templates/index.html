@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1><i class="fas fa-quote-left"></i> Quote Generator</h1>
+            <p>Discover inspiration, one quote at a time</p>
+        </header>
+
+        <main>
+            <!-- Quote Display -->
+            <section class="quote-card">
+                <div class="quote-content">
+                    <div id="quoteLoader" class="loader hidden"></div>
+                    <blockquote>
+                        <p id="quoteText">Click "Generate Quote" to get inspired!</p>
+                        <footer><cite id="quoteAuthor">— Get Started</cite></footer>
+                    </blockquote>
+                </div>
+                
+                <div class="quote-actions">
+                    <button id="generateBtn" class="btn btn-primary">
+                        <i class="fas fa-sync-alt"></i> Generate New Quote
+                    </button>
+                    <button id="saveBtn" class="btn btn-secondary" disabled>
+                        <i class="fas fa-bookmark"></i> Save to History
+                    </button>
+                </div>
+                
+                <div id="quoteTimestamp"></div>
+            </section>
+
+            <!-- History Section -->
+            <section class="history-section">
+                <div class="history-header">
+                    <h2><i class="fas fa-history"></i> Recently Viewed</h2>
+                    <div>
+                        <button id="refreshHistoryBtn" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-refresh"></i> Refresh
+                        </button>
+                        <button id="clearHistoryBtn" class="btn btn-sm btn-danger">
+                            <i class="fas fa-trash"></i> Clear All
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="historyList" class="history-list">
+                    <div class="empty-state">
+                        <i class="fas fa-inbox fa-3x"></i>
+                        <p>No quotes viewed yet.<br>Generate your first quote!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
